@@ -1,0 +1,16 @@
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Vercel CLI
+.vercel
+
+# Node (only if you add tooling later)
+node_modules/
+*.log
