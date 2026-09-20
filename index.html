@@ -1,3 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Ashvin Kumar — final-year computer science student and builder across AI and full-stack development, teaching, and community.">
+<meta name="theme-color" content="#f1f0f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0c13" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Ashvin Kumar">
+<meta property="og:description" content="Final-year CS student and builder — AI, full-stack, teaching, and community.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ashvin Kumar">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://meet-ashvin.vercel.app/">
+<meta property="og:image" content="https://meet-ashvin.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ashvin Kumar — AI and full-stack builder, teacher, lifelong learner">
+<link rel="canonical" href="https://meet-ashvin.vercel.app/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ashvin Kumar">
+<meta name="twitter:description" content="Final-year CS student and builder — AI, full-stack, teaching, and community.">
+<meta name="twitter:image" content="https://meet-ashvin.vercel.app/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ashvin Kumar",
+  "jobTitle": "Computer Science Student & Software Engineer",
+  "description": "Final-year computer science student and builder working across AI and full-stack development, teaching, and community work.",
+  "url": "https://meet-ashvin.vercel.app/",
+  "image": "https://meet-ashvin.vercel.app/og-image.png",
+  "email": "ashvinkumar287@gmail.com",
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "SZABIST (Shaheed Zulfikar Ali Bhutto Institute of Science & Technology)"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Karachi",
+    "addressCountry": "PK"
+  },
+  "knowsAbout": ["Artificial Intelligence", "Full-Stack Development", "Machine Learning", "Web3"],
+  "sameAs": [
+    "https://github.com/betheashvin",
+    "https://www.linkedin.com/in/ashvin-kumar"
+  ]
+}
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88'>🟣</text></svg>">
 <title>Ashvin Kumar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,7 +114,7 @@
 
   /* ---------- Base ---------- */
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   body{
     margin:0;
     background:var(--paper);
@@ -116,12 +167,53 @@
   .toggle:hover{border-color:var(--accent);color:var(--accent)}
   @media (max-width:640px){.nav{display:none}}
 
+  /* Mobile menu button — shown only where the inline nav is hidden */
+  .menu-btn{
+    display:none;
+    width:38px;height:38px;border-radius:50%;border:1px solid var(--line);
+    background:var(--surface);color:var(--ink);cursor:pointer;padding:0;
+    align-items:center;justify-content:center;
+    transition:border-color .15s,color .15s;
+  }
+  .menu-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .menu-btn svg{width:19px;height:19px;display:block}
+  .menu-btn .ic-close{display:none}
+  .menu-btn[aria-expanded="true"] .ic-open{display:none}
+  .menu-btn[aria-expanded="true"] .ic-close{display:block}
+
+  /* Mobile dropdown menu */
+  .mobile-menu{border-top:1px solid var(--line);background:var(--paper)}
+  .mobile-menu .wrap{display:flex;flex-direction:column;padding-block:6px 18px}
+  .m-link{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    font-family:var(--display);font-weight:700;font-size:1.22rem;letter-spacing:-.01em;
+    color:var(--ink);text-decoration:none;
+    padding:15px 2px;border-top:1px solid var(--line);
+  }
+  .m-link:first-child{border-top:0}
+  .m-link .arr{font-family:var(--mono);font-size:.9rem;color:var(--muted);transition:transform .15s,color .15s}
+  .m-link:hover{color:var(--accent)}
+  .m-link:hover .arr{color:var(--accent);transform:translateX(4px)}
+  .m-cta{
+    margin-top:16px;display:block;text-align:center;
+    font-family:var(--mono);font-weight:600;font-size:.88rem;letter-spacing:.01em;
+    background:var(--accent);color:var(--accent-ink);border:1px solid var(--accent);
+    border-radius:var(--r-sm);padding:14px 18px;text-decoration:none;
+  }
+  .m-cta:hover{background:var(--accent-deep);color:var(--accent-ink)}
+  @media (max-width:640px){.menu-btn{display:inline-flex}}
+  @media (min-width:641px){.mobile-menu{display:none!important}}
+  @media (prefers-reduced-motion:no-preference){
+    .mobile-menu:not([hidden]){animation:menuDrop .2s ease both}
+    @keyframes menuDrop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+  }
+
   /* ---------- Hero ---------- */
   .hero{padding-top:clamp(44px,7vw,84px);padding-bottom:clamp(58px,9vw,112px);scroll-margin-top:84px}
   .hero .wrap{display:flex;flex-direction:column;align-items:flex-start;gap:clamp(22px,3vw,30px)}
   .hero h1{
     font-family:var(--display);font-weight:800;
-    font-size:clamp(2.9rem,10vw,6.6rem);line-height:.9;letter-spacing:-.035em;
+    font-size:clamp(2.4rem,9.5vw,6.6rem);line-height:.94;letter-spacing:-.03em;
     text-wrap:balance;
   }
   .thesis{
@@ -249,7 +341,16 @@
     html{scroll-behavior:auto}
     *{animation:none!important;transition:none!important}
   }
+  /* ---------- Small phones ---------- */
+  @media (max-width:480px){
+    .sec{padding-block:clamp(46px,11vw,72px)}
+    .hero{padding-top:22px;padding-bottom:clamp(38px,10vw,58px)}
+    .sec-head{margin-bottom:clamp(22px,6vw,34px)}
+    .metric{padding:7px 12px}
+  }
 </style>
+</head>
+<body>
 
 <header class="site">
   <div class="wrap bar">
@@ -263,8 +364,22 @@
     </nav>
     <div class="tools">
       <button class="toggle" id="themeToggle" type="button" aria-label="Switch theme">☾</button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+        <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+      </button>
     </div>
   </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Menu" hidden>
+    <div class="wrap">
+      <a class="m-link" href="#work">Work <span class="arr" aria-hidden="true">→</span></a>
+      <a class="m-link" href="#experience">Experience <span class="arr" aria-hidden="true">→</span></a>
+      <a class="m-link" href="#beyond">Beyond the code <span class="arr" aria-hidden="true">→</span></a>
+      <a class="m-link" href="#skills">Skills <span class="arr" aria-hidden="true">→</span></a>
+      <a class="m-link" href="#contact">Contact <span class="arr" aria-hidden="true">→</span></a>
+      <a class="m-cta" href="Ashvin_Kumar_CV.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+    </div>
+  </nav>
 </header>
 
 <main id="top">
@@ -504,5 +619,23 @@
     sync();
     if(btn){btn.addEventListener('click',function(){var next=effective()==='dark'?'light':'dark';root.setAttribute('data-theme',next);try{localStorage.setItem('ak-theme',next);}catch(err){}sync();});}
     var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
+
+    var menuBtn=document.getElementById('menuBtn');
+    var menu=document.getElementById('mobileMenu');
+    function setMenu(open){
+      if(!menu||!menuBtn)return;
+      menu.hidden=!open;
+      menuBtn.setAttribute('aria-expanded',open?'true':'false');
+      menuBtn.setAttribute('aria-label',open?'Close menu':'Open menu');
+    }
+    if(menuBtn&&menu){
+      menuBtn.addEventListener('click',function(){setMenu(menu.hidden);});
+      menu.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false);});
+      document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!menu.hidden){setMenu(false);menuBtn.focus();}});
+      document.addEventListener('click',function(e){if(!menu.hidden&&!menu.contains(e.target)&&!menuBtn.contains(e.target))setMenu(false);});
+      window.addEventListener('resize',function(){if(window.innerWidth>640&&!menu.hidden)setMenu(false);});
+    }
   })();
 </script>
+</body>
+</html>
