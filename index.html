@@ -132,9 +132,11 @@
     text-rendering:optimizeLegibility;
   }
   .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(16px,5vw,44px)}
-  .sec{padding-block:clamp(58px,9vw,120px);scroll-margin-top:84px}
-  .sec.divide{border-top:1px solid var(--line)}
-  .sec.tint{background:var(--tint)}
+  .sec,.hero{padding-block:clamp(58px,9vw,120px);scroll-margin-top:84px;background:linear-gradient(180deg,var(--sf,var(--paper)) 0,var(--sf,var(--paper)) calc(100% - var(--fade,140px)),var(--st,var(--paper)) 100%)}
+  .sec.tint{--sf:var(--tint)}
+  .nx-tint{--st:var(--tint)}
+  .nx-band{--st:var(--band-dark)}
+  .nx-indigo{--st:var(--band-indigo)}
   a{color:inherit}
   h1,h2,h3,h4{margin:0}
 
@@ -333,7 +335,7 @@
   .xp-mini p{margin:4px 0 0;color:var(--muted);font-size:.92rem;line-height:1.5}
 
   /* ---------- Impact band (dark, single-look) ---------- */
-  .band-dark{background:var(--band-dark);color:var(--band-dark-ink)}
+  .band-dark{--sf:var(--band-dark);color:var(--band-dark-ink)}
   .band-dark .eyebrow{color:var(--band-dark-accent)}
   .band-dark h2,.band-dark h3,.band-dark h4{color:var(--band-dark-ink)}
   .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,32px);margin-bottom:clamp(40px,5vw,64px)}
@@ -414,7 +416,7 @@
   .filter-note button:hover{border-color:var(--accent);color:var(--accent)}
 
   /* ---------- Contact band (indigo, single-look) ---------- */
-  .band-indigo{background:var(--band-indigo);color:var(--band-indigo-ink)}
+  .band-indigo{--sf:var(--band-indigo);color:var(--band-indigo-ink)}
   .band-indigo .eyebrow{color:var(--accent)}
   .band-indigo h2{font-family:var(--display);font-weight:800;font-size:clamp(2rem,5.4vw,3.4rem);letter-spacing:-.02em;line-height:1.02;color:var(--band-indigo-ink);max-width:15em;text-wrap:balance}
   .band-indigo .lead{color:var(--muted);font-size:clamp(1.05rem,2vw,1.25rem);line-height:1.5;max-width:34em;margin-top:18px}
@@ -425,7 +427,7 @@
   .locus{font-family:var(--mono);font-size:.8rem;color:var(--muted);margin-top:clamp(24px,3vw,32px)}
 
   /* ---------- Footer ---------- */
-  footer{background:var(--paper);border-top:1px solid var(--line)}
+  footer{background:var(--paper)}
   footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding-block:26px}
   footer small{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
 
@@ -499,7 +501,7 @@
 <main id="top">
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero nx-tint">
     <div class="wrap">
       <p class="eyebrow reveal">Final-year CS · SZABIST · Karachi</p>
       <h1 class="reveal">Ashvin Kumar</h1>
@@ -531,7 +533,7 @@
   </section>
 
   <!-- Work -->
-  <section class="sec divide" id="work">
+  <section class="sec divide nx-tint" id="work">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Selected work</p>
@@ -587,7 +589,7 @@
   </section>
 
   <!-- Experience -->
-  <section class="sec divide tint" id="experience">
+  <section class="sec divide tint nx-band" id="experience">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Where I've worked</p>
@@ -633,7 +635,7 @@
       <div class="stat-grid">
         <div class="stat"><b data-count="100" data-suffix="k+">100k+</b><span>community members grown, from 30k</span></div>
         <div class="stat"><b data-count="50" data-suffix="+">50+</b><span>organizations reached</span></div>
-        <div class="stat"><b data-count="2" data-suffix="">1</b><span>cohort taught to build with AI</span></div>
+        <div class="stat"><b data-count="1" data-suffix="">1</b><span>cohort taught to build with AI</span></div>
       </div>
       <div class="feature-tiles">
         <details class="tile">
@@ -674,7 +676,7 @@
   </section>
 
   <!-- Education -->
-  <section class="sec divide" id="education">
+  <section class="sec divide nx-tint" id="education">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Education</p>
@@ -697,7 +699,7 @@
   </section>
 
   <!-- Skills -->
-  <section class="sec divide tint" id="skills">
+  <section class="sec divide tint nx-indigo" id="skills">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Toolkit</p>
